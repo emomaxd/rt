@@ -58,9 +58,11 @@ int main()
 
     bitmap_header Header;
     Header.FileType = 0x4D42;
+    Header.FileSize = sizeof(Header) + OutputPixelSize + 14;
     Header.Reserved1 = 0;
     Header.Reserved2 = 0;
     Header.BitmapOffset = sizeof(Header) - 14;
+    Header.Size = 40;
     Header.Width = WIDTH;
     Header.Height = HEIGHT;
     Header.Planes = 1;
