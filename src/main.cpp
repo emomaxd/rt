@@ -52,17 +52,17 @@ int main()
                 X < WIDTH;
                 ++X)
         {
-            *Out++ = 0xFF0000FF;
+            *Out++ = (Y < 32) ? 0xFFFF0000 : 0xFF0000FF;
         }
     }
 
     bitmap_header Header;
     Header.FileType = 0x4D42;
-    Header.FileSize = sizeof(Header) + OutputPixelSize + 14;
+    Header.FileSize = sizeof(Header) + OutputPixelSize;
     Header.Reserved1 = 0;
     Header.Reserved2 = 0;
-    Header.BitmapOffset = sizeof(Header) - 14;
-    Header.Size = 40;
+    Header.BitmapOffset = sizeof(Header);
+    Header.Size = sizeof(Header) - 14;
     Header.Width = WIDTH;
     Header.Height = HEIGHT;
     Header.Planes = 1;
@@ -84,7 +84,7 @@ int main()
     }
     else
     {
-        fprintf(stderr, "Error while opening a file!");
+        fprintf(stderr, "[ERROR] Unable to write output file %s.\n", OutputFileName);
     }
 
     return 0;
