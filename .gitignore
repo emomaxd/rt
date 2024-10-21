@@ -1,0 +1,12 @@
+*.out
+*.so
+*.a
+
+*.exe
+*.dll
+*.lib
+
+**/swr
+**/*.bmp
+
+build/
