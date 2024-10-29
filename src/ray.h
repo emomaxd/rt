@@ -37,15 +37,35 @@ struct image_u32
     u32 *Pixels;
 };
 
+struct material
+{
+    v3 EmitColor;
+    v3 RefColor;
+};
+
 struct plane
 {
+    v3 N;
+    f32 d;
+    u32 MatIndex;
 };
 
 struct sphere
 {
+    v3 P;
+    f32 r;
+    u32 MatIndex;
 };
 
 struct world
 {
+    u32 MaterialCount;
+    material *Materials;
+
+    u32 PlaneCount;
+    plane *Planes;
+
+    u32 SphereCount;
+    sphere* Spheres;
 };
 
