@@ -6,7 +6,4 @@
 *.dll
 *.lib
 
-**/swr
-**/*.bmp
-
 build/
