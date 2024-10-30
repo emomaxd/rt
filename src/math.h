@@ -89,6 +89,14 @@ struct v3 {
     inline v3 hadamard(const v3& other) const {
         return v3{x * other.x, y * other.y, z * other.z};
     }
+
+    v3 lerp(const v3& end, float t) const {
+        return v3(
+            x + (end.x - x) * t,
+            y + (end.y - y) * t,
+            z + (end.z - z) * t
+        );
+    }
 };
 
 struct v4 {

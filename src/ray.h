@@ -7,6 +7,7 @@ typedef short s16;
 typedef int s32;
 typedef float f32;
 
+#define ArrayCount(Array) (sizeof(Array) / sizeof((Array[0])))
 
 #pragma pack(push, 1)
 struct bitmap_header
@@ -39,6 +40,7 @@ struct image_u32
 
 struct material
 {
+    f32 Scatter; // 0 is pure diffuse, 1 is pure specular
     v3 EmitColor;
     v3 RefColor;
 };
